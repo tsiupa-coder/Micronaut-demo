@@ -15,14 +15,14 @@ public class BookService {
 
     public void initDataBase(){
 
-        Pen book = new Pen();
+        Book book = new Book();
         book.setTitle("The Stand");
         book.setPages(1000);
         repository.save(book);
     }
 
-    public List<Pen> findAll(){
+    public List<Book> findAll(){
 
-        return (List<Pen>) repository.findAll();
+        return (List<Book>) repository.findAll();
     }
 }

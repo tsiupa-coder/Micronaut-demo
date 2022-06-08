@@ -3,19 +3,20 @@ package com.example;
 import javax.persistence.*;
 
 @Entity
-public class Pen {
+@Table(name = "books")
+public class Book {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String title;
     private int pages;
 
-    public Pen(String title, int pages) {
+    public Book(String title, int pages) {
         this.title = title;
         this.pages = pages;
     }
 
-    public Pen() {
+    public Book() {
     }
 
     public Long getId() {

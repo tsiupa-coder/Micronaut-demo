@@ -18,7 +18,7 @@ public class BookController {
     }
 
     @Get("/books")
-    public List<Pen> books() {
+    public List<Book> books() {
         return service.findAll();
     }
 
