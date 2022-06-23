@@ -5,6 +5,7 @@ import jakarta.inject.Inject;
 import jakarta.inject.Singleton;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 @Primary
 @Singleton
@@ -24,5 +25,14 @@ public class BookService {
     public List<Book> findAll(){
 
         return (List<Book>) repository.findAll();
+    }
+
+
+    public Book fall(){
+
+        return repository
+                .findById(null)
+                .orElseThrow((NoSuchElementException::new));
+
     }
 }

@@ -22,4 +22,9 @@ public class BookController {
         return service.findAll();
     }
 
+
+    @Get("/fall")
+    public void fall() {
+        service.fall();
+    }
 }
