@@ -5,7 +5,46 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
-    <changeSet id="01" author="tsiupa">
+    <changeSet id="001" author="ivan_tsiupa">
+      <sql>
+          CREATE TABLE IF NOT EXISTS books
+          (
+          id          BIGSERIAL    NOT NULL,
+          title       TEXT         NOT NULL,
+          pages       BIGINT       NOT NULL,
+          PRIMARY KEY (id)
+          );
 
+      </sql>
+    </changeSet>
+
+    <changeSet id="002" author="ivan_tsiupa">
+        <sql>
+            INSERT INTO books(title, pages) VALUES('Philosophers Stone', 200);
+            INSERT INTO books(title, pages) VALUES('Chamber of Secrets', 233);
+            INSERT INTO books(title, pages) VALUES('Prisoner of Azkaban', 146);
+            INSERT INTO books(title, pages) VALUES('Goblet of Fire', 342);
+            INSERT INTO books(title, pages) VALUES('Order of the Phoenix', 146);
+            INSERT INTO books(title, pages) VALUES('Half-Blood Prince', 342);
+            INSERT INTO books(title, pages) VALUES('Deathly Hallows', 342);
+        </sql>
+    </changeSet>
+
+    <changeSet id="003" author="ivan_tsiupa">
+        <sql>
+            ALTER TABLE books ADD year BIGINT DEFAULT 0 NOT NULL;
+        </sql>
+    </changeSet>
+
+    <changeSet id="004" author="ivan_tsiupa">
+        <sql>
+            UPDATE books SET year = 1997 WHERE title = 'Philosophers Stone';
+            UPDATE books SET year = 1998 WHERE title = 'Chamber of Secrets';
+            UPDATE books SET year = 1999 WHERE title = 'Prisoner of Azkaban';
+            UPDATE books SET year = 2000 WHERE title = 'Goblet of Fire';
+            UPDATE books SET year = 2003 WHERE title = 'Order of the Phoenix';
+            UPDATE books SET year = 2005 WHERE title = 'Half-Blood Prince';
+            UPDATE books SET year = 2007 WHERE title = 'Deathly Hallows';
+        </sql>
     </changeSet>
 </databaseChangeLog>

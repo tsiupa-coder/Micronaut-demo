@@ -11,6 +11,8 @@ public class Book {
     private String title;
     private int pages;
 
+    private int year;
+
     public Book(String title, int pages) {
         this.title = title;
         this.pages = pages;
@@ -41,5 +43,13 @@ public class Book {
 
     public void setPages(int pages) {
         this.pages = pages;
+    }
+
+    public int getYear() {
+        return year;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
     }
 }
