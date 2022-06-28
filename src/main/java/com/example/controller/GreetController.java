@@ -1,5 +1,6 @@
-package com.example;
+package com.example.controller;
 
+import com.example.service.GreetingService;
 import io.micronaut.http.MediaType;
 import io.micronaut.http.annotation.Body;
 import io.micronaut.http.annotation.Controller;

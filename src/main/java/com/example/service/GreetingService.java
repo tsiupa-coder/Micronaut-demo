@@ -1,4 +1,4 @@
-package com.example;
+package com.example.service;
 
 import io.micronaut.context.annotation.Primary;
 import jakarta.inject.Singleton;

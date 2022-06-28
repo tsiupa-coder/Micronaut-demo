@@ -1,7 +1,8 @@
-package com.example;
+package com.example.service;
 
+import com.example.BookRepository;
+import com.example.model.Book;
 import io.micronaut.context.annotation.Primary;
-import io.micronaut.http.HttpMessage;
 import jakarta.inject.Inject;
 import jakarta.inject.Singleton;
 

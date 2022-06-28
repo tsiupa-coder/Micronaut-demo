@@ -1,5 +1,6 @@
-package com.example;
+package com.example.repository;
 
+import com.example.model.Book;
 import io.micronaut.context.annotation.Executable;
 import io.micronaut.data.annotation.*;
 import io.micronaut.data.repository.CrudRepository;
