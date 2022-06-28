@@ -1,7 +1,7 @@
 package com.example.service;
 
-import com.example.BookRepository;
 import com.example.model.Book;
+import com.example.repository.BookRepository;
 import io.micronaut.context.annotation.Primary;
 import jakarta.inject.Inject;
 import jakarta.inject.Singleton;
@@ -30,7 +30,7 @@ public class BookService {
     @Transactional
     public List<Book> findAll(){
 
-        return (List<Book>) repository.findAll();
+        return repository.findAll();
     }
 
     @Transactional

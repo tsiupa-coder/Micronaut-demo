@@ -10,8 +10,11 @@ public class Book {
     private Long id;
     private String title;
     private int pages;
-
     private int year;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "author_id")
+    private Author author;
 
     public Book(String title, int pages) {
         this.title = title;
@@ -51,5 +54,13 @@ public class Book {
 
     public void setYear(int year) {
         this.year = year;
+    }
+
+    public Author getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(Author author) {
+        this.author = author;
     }
 }

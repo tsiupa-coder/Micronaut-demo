@@ -14,10 +14,11 @@ datasources:
     username: 'sa'
     password: ''
     driverClassName: 'org.h2.Driver'
+
 jpa:
   default:
-    packages-to-scan:
-      - 'com.example'
+    entity-scan:
+      packages: 'com.example.model'
     properties:
       hibernate:
         hbm2ddl:
