@@ -13,7 +13,7 @@ public class AuthorService {
     AuthorRepository repository;
 
 
-    public void getAll(){
+    public void getAll() {
         repository.findAll();
     }
 }

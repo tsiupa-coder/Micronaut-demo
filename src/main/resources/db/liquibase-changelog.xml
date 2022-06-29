@@ -7,16 +7,16 @@
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
 
     <changeSet id="001" author="ivan_tsiupa">
-      <sql>
-          CREATE TABLE IF NOT EXISTS books
-          (
-          id          BIGSERIAL    NOT NULL,
-          title       TEXT         NOT NULL,
-          pages       BIGINT       NOT NULL,
-          PRIMARY KEY (id)
-          );
+        <sql>
+            CREATE TABLE IF NOT EXISTS books
+            (
+            id BIGSERIAL NOT NULL,
+            title TEXT NOT NULL,
+            pages BIGINT NOT NULL,
+            PRIMARY KEY (id)
+            );
 
-      </sql>
+        </sql>
     </changeSet>
 
     <changeSet id="002" author="ivan_tsiupa">
@@ -52,9 +52,9 @@
     <changeSet id="005" author="ivan_tsiupa">
         <sql>
             CREATE TABLE IF NOT EXISTS authors (
-                id          BIGSERIAL    NOT NULL,
-                full_name   TEXT         NOT NULL,
-                PRIMARY KEY (id)
+            id BIGSERIAL NOT NULL,
+            full_name TEXT NOT NULL,
+            PRIMARY KEY (id)
             );
         </sql>
     </changeSet>

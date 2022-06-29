@@ -23,18 +23,18 @@ class GreetControllerTest {
     }
 
     @Test
-    void testPostHelloWorld(RequestSpecification spec){
+    void testPostHelloWorld(RequestSpecification spec) {
         HashMap<String, String> params = new HashMap<>();
         params.put("name", "Ivan");
 
         spec
                 .when()
-                    .contentType(ContentType.JSON)
-                    .queryParam("name", "Ivan")
-                    .post("/greet/post")
-                            .then()
-                                .statusCode(200)
-                                .body(is("Hi, nice to see you here Ivan"));
+                .contentType(ContentType.JSON)
+                .queryParam("name", "Ivan")
+                .post("/greet/post")
+                .then()
+                .statusCode(200)
+                .body(is("Hi, nice to see you here Ivan"));
 
     }
 

@@ -1,8 +1,6 @@
 package com.example.controller;
 
 import com.example.service.GreetingService;
-import io.micronaut.http.MediaType;
-import io.micronaut.http.annotation.Body;
 import io.micronaut.http.annotation.Controller;
 import io.micronaut.http.annotation.Get;
 import io.micronaut.http.annotation.Post;
@@ -17,11 +15,11 @@ public class GreetController {
 
     @Get("/{name}")
     public String greet(String name) {
-        return greetingService.getGreeting() + " " +  name;
+        return greetingService.getGreeting() + " " + name;
     }
 
     @Post("/post")
     public String setGreeting(@QueryValue String name) {
-        return greetingService.getGreeting() + " " +  name;
+        return greetingService.getGreeting() + " " + name;
     }
 }

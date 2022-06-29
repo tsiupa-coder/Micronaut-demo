@@ -1,8 +1,8 @@
 package com.example.controller;
 
+import com.example.model.Book;
 import com.example.model.dto.BookDTO;
 import com.example.service.BookService;
-import com.example.model.Book;
 import io.micronaut.http.HttpMessage;
 import io.micronaut.http.HttpResponse;
 import io.micronaut.http.HttpStatus;
@@ -34,11 +34,12 @@ public class BookController {
     }
 
     @Get("/model")
-    public List<Book> find(){
+    public List<Book> find() {
         return service.find();
     }
+
     @Get("/title")
-    public Book find(@QueryValue String title){
+    public Book find(@QueryValue String title) {
         return service.findByTitle(title);
     }
 
@@ -55,7 +56,7 @@ public class BookController {
     }
 
     @Delete("{id}")
-    public HttpMessage delete(@PathVariable Long id){
+    public HttpMessage delete(@PathVariable Long id) {
 
         service.delete(id);
 

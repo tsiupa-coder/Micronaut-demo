@@ -20,7 +20,7 @@ public class BookService {
     BookRepository repository;
 
     @Transactional
-    public void initDataBase(){
+    public void initDataBase() {
 
         Book book = new Book();
         book.setTitle("The Stand");
@@ -29,29 +29,30 @@ public class BookService {
     }
 
     @Transactional
-    public List<BookDTO> findAll(){
+    public List<BookDTO> findAll() {
 
         return repository.find();
     }
 
     @Transactional
-    public List<Book> find(){
+    public List<Book> find() {
         return repository.list();
     }
 
 
     @Transactional
-    public Book findByTitle(String title){
+    public Book findByTitle(String title) {
         return repository.findByTitle(title);
     }
 
 
     @Transactional
-    public Long countBooks(){
+    public Long countBooks() {
         return repository.count();
     }
+
     @Transactional
-    public Book fall(){
+    public Book fall() {
 
         return repository
                 .findById(null)
@@ -70,12 +71,12 @@ public class BookService {
         repository.deleteById(id);
     }
 
-   @Transactional
+    @Transactional
     public void updateName(Long id, String title) {
 
         Optional<Book> book = repository.findById(id);
 
-        if(book.isPresent()) {
+        if (book.isPresent()) {
             Book bookUpdated = book.get();
             bookUpdated.setTitle(title);
             repository.update(bookUpdated);
