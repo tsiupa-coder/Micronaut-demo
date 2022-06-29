@@ -99,6 +99,14 @@
       <groupId>io.micronaut.liquibase</groupId>
       <artifactId>micronaut-liquibase</artifactId>
     </dependency>
+
+    <dependency>
+      <groupId>io.micronaut.test</groupId>
+      <artifactId>micronaut-test-rest-assured</artifactId>
+      <version>3.4.0</version>
+      <scope>test</scope>
+    </dependency>
+
   </dependencies>
 
   <build>

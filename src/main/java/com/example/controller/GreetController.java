@@ -6,6 +6,7 @@ import io.micronaut.http.annotation.Body;
 import io.micronaut.http.annotation.Controller;
 import io.micronaut.http.annotation.Get;
 import io.micronaut.http.annotation.Post;
+import io.micronaut.http.annotation.QueryValue;
 import jakarta.inject.Inject;
 
 @Controller("/greet")
@@ -19,8 +20,8 @@ public class GreetController {
         return greetingService.getGreeting() + " " +  name;
     }
 
-    @Post(value = "/{name}", consumes = MediaType.TEXT_PLAIN)
-    public String setGreeting(@Body String name) {
+    @Post("/post")
+    public String setGreeting(@QueryValue String name) {
         return greetingService.getGreeting() + " " +  name;
     }
 }

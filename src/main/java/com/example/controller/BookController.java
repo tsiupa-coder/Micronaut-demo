@@ -42,7 +42,6 @@ public class BookController {
         return service.findByTitle(title);
     }
 
-
     @Get("/count")
     public Long count() {
         return service.countBooks();
