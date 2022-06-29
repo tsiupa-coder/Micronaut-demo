@@ -20,7 +20,6 @@ public class Author {
     @Column(name = "full_name")
     String name;
 
-
     public Long getId() {
         return id;
     }

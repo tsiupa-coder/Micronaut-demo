@@ -1,6 +1,7 @@
 package com.example.repository;
 
 import com.example.model.Book;
+import com.example.model.dto.BookDTO;
 import io.micronaut.context.annotation.Executable;
 import io.micronaut.data.annotation.*;
 import io.micronaut.data.jpa.annotation.EntityGraph;
@@ -13,6 +14,7 @@ import java.util.List;
 public interface BookRepository extends CrudRepository<Book, Long>, JpaSpecificationExecutor<Book> {
 
     @Executable
+    @Join(value = "author", type = Join.Type.FETCH)
     Book findByTitle(String title);
 
     @Join(value = "author", type = Join.Type.FETCH) //
@@ -20,4 +22,6 @@ public interface BookRepository extends CrudRepository<Book, Long>, JpaSpecifica
 
     @EntityGraph(attributePaths = {"author", "title"}) //
     List<Book> findAll();
+
+    List<BookDTO> find();
 }

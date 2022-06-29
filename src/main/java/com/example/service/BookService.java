@@ -1,6 +1,7 @@
 package com.example.service;
 
 import com.example.model.Book;
+import com.example.model.dto.BookDTO;
 import com.example.repository.BookRepository;
 import io.micronaut.context.annotation.Primary;
 import jakarta.inject.Inject;
@@ -28,11 +29,22 @@ public class BookService {
     }
 
     @Transactional
-    public List<Book> findAll(){
+    public List<BookDTO> findAll(){
 
-        return repository.findAll();
+        return repository.find();
     }
 
+    @Transactional
+    public List<Book> find(){
+        return repository.list();
+    }
+
+
+    @Transactional
+    public Book findByTitle(String title){
+
+        return repository.findByTitle(title);
+    }
     @Transactional
     public Book fall(){
 

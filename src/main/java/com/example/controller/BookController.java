@@ -1,5 +1,6 @@
 package com.example.controller;
 
+import com.example.model.dto.BookDTO;
 import com.example.service.BookService;
 import com.example.model.Book;
 import io.micronaut.http.HttpMessage;
@@ -28,8 +29,17 @@ public class BookController {
     }
 
     @Get
-    public List<Book> books() {
+    public List<BookDTO> books() {
         return service.findAll();
+    }
+
+    @Get("/model")
+    public List<Book> find(){
+        return service.find();
+    }
+    @Get("/title")
+    public Book find(@QueryValue String title){
+        return service.findByTitle(title);
     }
 
     @Post
