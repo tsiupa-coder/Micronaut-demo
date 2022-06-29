@@ -42,8 +42,13 @@ public class BookService {
 
     @Transactional
     public Book findByTitle(String title){
-
         return repository.findByTitle(title);
+    }
+
+
+    @Transactional
+    public Long countBooks(){
+        return repository.count();
     }
     @Transactional
     public Book fall(){
