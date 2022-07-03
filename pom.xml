@@ -99,6 +99,21 @@
       <groupId>io.micronaut.liquibase</groupId>
       <artifactId>micronaut-liquibase</artifactId>
     </dependency>
+        <!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
+    <dependency>
+      <groupId>com.google.code.gson</groupId>
+      <artifactId>gson</artifactId>
+      <version>2.9.0</version>
+    </dependency>
+
+
+
+
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.12</version>
+    </dependency>
 
     <dependency>
       <groupId>io.micronaut.test</groupId>
@@ -106,14 +121,18 @@
       <version>3.4.0</version>
       <scope>test</scope>
     </dependency>
-
-    <!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
     <dependency>
-      <groupId>com.google.code.gson</groupId>
-      <artifactId>gson</artifactId>
-      <version>2.9.0</version>
+      <groupId>io.cucumber</groupId>
+      <artifactId>cucumber-java</artifactId>
+      <version>7.4.1</version>
     </dependency>
 
+    <dependency>
+      <groupId>io.cucumber</groupId>
+      <artifactId>cucumber-junit</artifactId>
+      <version>7.4.1</version>
+      <scope>test</scope>
+    </dependency>
 
   </dependencies>
 
