@@ -34,7 +34,8 @@ class BookControllerTest {
 
         res.then().statusCode(200);
 
-        List<Book> list = res.body().as(new TypeToken<ArrayList<Book>>() {}.getType());
+        List<Book> list = res.body().as(new TypeToken<ArrayList<Book>>() {
+        }.getType());
 
         assertTrue(list.size() == 7 || list.size() == 8);
     }
