@@ -10,6 +10,7 @@ import io.micronaut.data.jpa.repository.JpaSpecificationExecutor;
 import io.micronaut.data.repository.CrudRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface BookRepository extends CrudRepository<Book, Long>, JpaSpecificationExecutor<Book> {
@@ -23,6 +24,10 @@ public interface BookRepository extends CrudRepository<Book, Long>, JpaSpecifica
 
     @EntityGraph(attributePaths = {"author", "title"})
     List<Book> findAll();
+
+    Optional<Integer> findPagesById(Long id);
+
+    Long findSumPages();
 
     List<BookDTO> find();
 }

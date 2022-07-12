@@ -11,6 +11,7 @@ import javax.transaction.Transactional;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Primary
 @Singleton
@@ -60,6 +61,24 @@ public class BookService {
 
     }
 
+    @Transactional
+    public Long totalPages(List<Long> id){
+
+        return id.stream()
+                .map(this::getPages)
+                .collect(Collectors.summarizingLong(Integer::intValue))
+                .getCount();
+    }
+
+    @Transactional
+    public Integer getPages(Long bookId){
+        return repository.findPagesById(bookId).orElse(0);
+    }
+
+    @Transactional
+    public Long sumPages(){
+        return repository.findSumPages();
+    }
     @Transactional
     public void create(Book book) {
         repository.save(book);

@@ -23,7 +23,7 @@ public class BookController {
     @Inject
     private BookService service;
 
-    @Get
+    @Get("/dto")
     public List<BookDTO> books() {
         return service.findAll();
     }
@@ -41,6 +41,11 @@ public class BookController {
     @Get("/count")
     public Long count() {
         return service.countBooks();
+    }
+
+    @Get("/pages")
+    public Long pages(){
+        return service.sumPages();
     }
 
     @Post
