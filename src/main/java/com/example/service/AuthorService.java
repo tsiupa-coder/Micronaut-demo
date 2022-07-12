@@ -8,10 +8,8 @@ import jakarta.inject.Singleton;
 @Primary
 @Singleton
 public class AuthorService {
-
     @Inject
     AuthorRepository repository;
-
 
     public void getAll() {
         repository.findAll();

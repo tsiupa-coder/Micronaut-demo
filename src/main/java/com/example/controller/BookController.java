@@ -23,17 +23,12 @@ public class BookController {
     @Inject
     private BookService service;
 
-    @Get("/init")
-    public void init() {
-        service.initDataBase();
-    }
-
     @Get
     public List<BookDTO> books() {
         return service.findAll();
     }
 
-    @Get("/model")
+    @Get()
     public List<Book> find() {
         return service.find();
     }
@@ -63,23 +58,11 @@ public class BookController {
         return HttpResponse.status(HttpStatus.NO_CONTENT);
     }
 
-
     @Put("{id}")
     public HttpMessage update(@PathVariable Long id, @QueryValue String name) {
 
         service.updateName(id, name);
 
         return HttpResponse.status(HttpStatus.ACCEPTED);
-    }
-
-    @Get("/fall")
-    public void fall() {
-        service.fall();
-    }
-
-    @Get(value = "/test")
-    public String test() {
-
-        return "HI";
     }
 }

@@ -19,11 +19,9 @@ public interface BookRepository extends CrudRepository<Book, Long>, JpaSpecifica
     Book findByTitle(String title);
 
     @Join(value = "author", type = Join.Type.FETCH)
-        //
     List<Book> list();
 
     @EntityGraph(attributePaths = {"author", "title"})
-        //
     List<Book> findAll();
 
     List<BookDTO> find();
