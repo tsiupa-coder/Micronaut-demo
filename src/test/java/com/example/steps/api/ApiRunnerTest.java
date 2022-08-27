@@ -4,7 +4,6 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
-
 import io.restassured.response.Response;
 import org.junit.jupiter.api.Assertions;
 import org.junit.runner.RunWith;
@@ -16,12 +15,13 @@ import static io.restassured.RestAssured.given;
 @CucumberOptions(
         features = "src/test/resources/features/api",
         glue = "com.example.steps.api",
-        plugin = {  "pretty", "json:src/test/resources/features/api/cucumber.json"}
+        plugin = {"pretty", "json:src/test/resources/features/api/cucumber.json"}
 )
 public class ApiRunnerTest {
 
     int stcd;
     String rsbd;
+
     @When("I make request")
     public void i_make_request() {
 
@@ -37,6 +37,7 @@ public class ApiRunnerTest {
     public void response_code_is_correct() {
         Assertions.assertEquals(200, stcd);
     }
+
     @Then("Response body is correct")
     public void response_body_is_correct() {
         Assertions.assertEquals("Hi, nice to see you here Ivan", rsbd);

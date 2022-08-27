@@ -3,6 +3,19 @@ micronaut:
     name: demo
   server:
     port: 8081
+    maxRequestSize: 1MB
+  router:
+    versioning:
+      enabled: true
+      default-version: 1.1
+      parameter:
+        enabled: false
+        names: 'v,api-version'
+      header:
+        enabled: true
+        names:
+          - 'X-API-VERSION'
+          - 'Accept-Version'
 netty:
   default:
     allocator:

@@ -10,20 +10,19 @@ import io.micronaut.data.jpa.repository.JpaSpecificationExecutor;
 import io.micronaut.data.repository.CrudRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface BookRepository extends CrudRepository<Book, Long>, JpaSpecificationExecutor<Book> {
 
     @Executable
     @Join(value = "author", type = Join.Type.FETCH)
-    Book findByTitle(String title);
+    Optional<Book> findByTitle(String title);
 
     @Join(value = "author", type = Join.Type.FETCH)
-        //
     List<Book> list();
 
     @EntityGraph(attributePaths = {"author", "title"})
-        //
     List<Book> findAll();
 
     List<BookDTO> find();
