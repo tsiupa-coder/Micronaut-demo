@@ -17,7 +17,7 @@ public interface BookRepository extends CrudRepository<Book, Long>, JpaSpecifica
 
     @Executable
     @Join(value = "author", type = Join.Type.FETCH)
-    Book findByTitle(String title);
+    Optional<Book> findByTitle(String title);
 
     @Join(value = "author", type = Join.Type.FETCH)
     List<Book> list();

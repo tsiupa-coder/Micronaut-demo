@@ -1,5 +1,6 @@
 package com.example.service;
 
+import com.example.exceptions.ItemNotFoundException;
 import com.example.model.Book;
 import com.example.model.dto.BookDTO;
 import com.example.repository.BookRepository;
@@ -9,7 +10,6 @@ import jakarta.inject.Singleton;
 
 import javax.transaction.Transactional;
 import java.util.List;
-import java.util.NoSuchElementException;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
@@ -30,22 +30,29 @@ public class BookService {
     }
 
     @Transactional
-    public List<BookDTO> findAll() {
+    public List<BookDTO> findAllDTO() {
 
         return repository.find();
     }
 
     @Transactional
-    public List<Book> find() {
+    public List<Book> findAll() {
         return repository.list();
     }
 
 
     @Transactional
     public Book findByTitle(String title) {
-        return repository.findByTitle(title);
+        return repository
+                .findByTitle(title)
+                .orElseThrow(
+                        () -> new ItemNotFoundException(
+                                String.format(
+                                        "Book with title %S not found, sorry", title
+                                )
+                        )
+                );
     }
-
 
     @Transactional
     public Long countBooks() {
@@ -57,7 +64,7 @@ public class BookService {
 
         return repository
                 .findById(null)
-                .orElseThrow((NoSuchElementException::new));
+                .orElseThrow((ItemNotFoundException::new));
 
     }
 
