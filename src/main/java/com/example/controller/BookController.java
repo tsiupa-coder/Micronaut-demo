@@ -36,6 +36,7 @@ public class BookController {
             books = service.findAll();
         }
         return books;
+
     }
 
     @Version("1.1")

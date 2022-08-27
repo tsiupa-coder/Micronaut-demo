@@ -25,5 +25,9 @@ public interface BookRepository extends CrudRepository<Book, Long>, JpaSpecifica
     @EntityGraph(attributePaths = {"author", "title"})
     List<Book> findAll();
 
+    Optional<Integer> findPagesById(Long id);
+
+    Long findSumPages();
+
     List<BookDTO> find();
 }
