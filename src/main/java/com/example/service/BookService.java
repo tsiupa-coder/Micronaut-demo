@@ -69,7 +69,7 @@ public class BookService {
     }
 
     @Transactional
-    public Long totalPages(List<Long> id){
+    public Long totalPages(List<Long> id) {
 
         return id.stream()
                 .map(this::getPages)
@@ -78,14 +78,15 @@ public class BookService {
     }
 
     @Transactional
-    public Integer getPages(Long bookId){
+    public Integer getPages(Long bookId) {
         return repository.findPagesById(bookId).orElse(0);
     }
 
     @Transactional
-    public Long sumPages(){
+    public Long sumPages() {
         return repository.findSumPages();
     }
+
     @Transactional
     public void create(Book book) {
         repository.save(book);

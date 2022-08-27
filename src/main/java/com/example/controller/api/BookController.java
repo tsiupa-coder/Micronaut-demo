@@ -1,4 +1,4 @@
-package com.example.controller;
+package com.example.controller.api;
 
 import com.example.model.Book;
 import com.example.service.BookService;
@@ -20,7 +20,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-@Controller("/book")
+import static com.example.generall.URlConstants.BOOKS;
+import static com.example.generall.URlConstants.COUNT;
+import static com.example.generall.URlConstants.ID;
+import static com.example.generall.URlConstants.VERSION_1_1;
+
+@Controller(BOOKS)
 public class BookController {
 
     @Inject
@@ -36,32 +41,31 @@ public class BookController {
             books = service.findAll();
         }
         return books;
-
     }
 
-    @Version("1.1")
-    @Get("/count")
+    @Version(VERSION_1_1)
+    @Get(COUNT)
     public Long count() {
         return service.countBooks();
     }
 
-    @Version("1.1")
+    @Version(VERSION_1_1)
     @Status(HttpStatus.CREATED)
     @Post
     public void create(Book book) {
         service.create(book);
     }
 
-    @Version("1.1")
+    @Version(VERSION_1_1)
     @Status(HttpStatus.NO_CONTENT)
-    @Delete("{id}")
+    @Delete(ID)
     public void delete(@PathVariable Long id) {
         service.delete(id);
     }
 
-    @Version("1.1")
+    @Version(VERSION_1_1)
     @Status(HttpStatus.ACCEPTED)
-    @Put("{id}")
+    @Put(ID)
     public void update(@PathVariable Long id, @QueryValue @NotBlank String name) {
         service.updateName(id, name);
     }

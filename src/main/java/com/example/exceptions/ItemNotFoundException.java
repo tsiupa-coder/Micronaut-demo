@@ -1,5 +1,7 @@
 package com.example.exceptions;
 
+import static com.example.generall.Constraints.ITEM_NOT_FOUND;
+
 public class ItemNotFoundException extends RuntimeException {
 
     public ItemNotFoundException(String msg) {
@@ -7,6 +9,6 @@ public class ItemNotFoundException extends RuntimeException {
     }
 
     public ItemNotFoundException() {
-        super("Item not found");
+        super(ITEM_NOT_FOUND);
     }
 }

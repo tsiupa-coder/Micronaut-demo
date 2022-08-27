@@ -1,7 +1,5 @@
 package com.example.exceptionHandler;
 
-
-import com.example.exceptions.ItemNotFoundException;
 import io.micronaut.context.annotation.Requires;
 import io.micronaut.http.HttpRequest;
 import io.micronaut.http.HttpResponse;
@@ -13,21 +11,21 @@ import jakarta.inject.Singleton;
 
 @Produces
 @Singleton
-@Requires(classes = {ItemNotFoundException.class, ExceptionHandler.class})
-public class ItemNotFoundExceptionHandler implements ExceptionHandler<ItemNotFoundException, HttpResponse> {
+@Requires(classes = {IllegalArgumentException.class, ExceptionHandler.class})
+public class IllegalArgumentExceptionHandler implements ExceptionHandler<IllegalArgumentException, HttpResponse> {
 
     private final ErrorResponseProcessor<?> errorResponseProcessor;
 
-    public ItemNotFoundExceptionHandler(ErrorResponseProcessor<?> errorResponseProcessor) {
+    public IllegalArgumentExceptionHandler(ErrorResponseProcessor<?> errorResponseProcessor) {
         this.errorResponseProcessor = errorResponseProcessor;
     }
 
     @Override
-    public HttpResponse handle(HttpRequest request, ItemNotFoundException e) {
+    public HttpResponse handle(HttpRequest request, IllegalArgumentException exception) {
         return errorResponseProcessor.processResponse
                 (ErrorContext.builder(request)
-                        .cause(e)
-                        .errorMessage(e.getMessage())
+                        .cause(exception)
+                        .errorMessage(exception.getMessage())
                         .build(), HttpResponse.badRequest());
     }
 }

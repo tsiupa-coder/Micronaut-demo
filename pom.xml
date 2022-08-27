@@ -15,8 +15,8 @@
 
   <properties>
     <packaging>jar</packaging>
-    <jdk.version>11</jdk.version>
-    <release.version>11</release.version>
+    <jdk.version>18</jdk.version>
+    <release.version>18</release.version>
     <micronaut.version>3.5.1</micronaut.version>
     <micronaut.runtime>netty</micronaut.runtime>
     <exec.mainClass>com.example.Application</exec.mainClass>
@@ -105,10 +105,6 @@
       <artifactId>gson</artifactId>
       <version>2.9.0</version>
     </dependency>
-
-
-
-
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
@@ -126,7 +122,6 @@
       <artifactId>cucumber-java</artifactId>
       <version>7.4.1</version>
     </dependency>
-
     <dependency>
       <groupId>io.cucumber</groupId>
       <artifactId>cucumber-junit</artifactId>
@@ -167,6 +162,8 @@
             <arg>-Amicronaut.processing.group=com.example</arg>
             <arg>-Amicronaut.processing.module=demo</arg>
           </compilerArgs>
+          <source>18</source>
+          <target>18</target>
         </configuration>
       </plugin>
     </plugins>
