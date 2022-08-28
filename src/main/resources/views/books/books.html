@@ -50,10 +50,10 @@
 </table>
 
 <div id="rightSide" >
-
     <h2 id="bookTitle">Title</h2>
     <h3 id="bookAuthor">Author</h3>
     <p id="bookDescription">Description</p>
+    <img src="https://upload.wikimedia.org/wikipedia/en/a/a0/Harry_Potter_and_the_Prisoner_of_Azkaban.jpg" alt="book image" width="70%" height="70%">
 </div>
 
 <script  th:inline="javascript">
@@ -61,31 +61,27 @@
     var isResized = false;
     var lastId;
     function showDetail(id, title, page, year, author) {
-
-        if(isResized && lastId === id){
+        if(lastId) {
+            document.getElementById(lastId).style.backgroundColor = "#FFFFFF";
+        }
+        if(isResized && lastId === id) {
             document.getElementById('booksTable').style.width = "100%";
             document.getElementById('rightSide').style.display = "none";
         } else {
-            document.getElementById('booksTable').style.width = "50%";
+            document.getElementById(id).style.backgroundColor = "#1979a9";
+            document.getElementById('booksTable').style.width = "60%";
             document.getElementById('booksTable').style.float = "left";
-
             document.getElementById('rightSide').style.float = "left";
-            document.getElementById('rightSide').style.width = "40%";
+            document.getElementById('rightSide').style.width = "35%";
             document.getElementById('rightSide').style.display = "block";
-            document.getElementById('rightSide').style.margin= "1% 5% 1% 5%";
-
+            document.getElementById('rightSide').style.margin= "1% 2.5% 1% 2.5%";
             document.getElementById('bookTitle').innerHTML = title;
             document.getElementById('bookAuthor').innerHTML = author;
             document.getElementById('bookDescription').innerHTML = 'Year: ' + year + ', pages: ' + page;
         }
-
-
-
         isResized = !isResized;
         lastId = id;
     }
-
-
 </script>
 </body>
 </html>
