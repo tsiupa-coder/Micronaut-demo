@@ -74,11 +74,8 @@ public class GreetController {
     }
 
     @View("books/books")
-    @Get("/test")
+    @Get("/books")
     public Map getHome() {
-        Date date = new Date();
-        SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
-
         return CollectionUtils.mapOf( "books", bookService.findAll());
     }
 }

@@ -6,10 +6,7 @@ import jakarta.inject.Singleton;
 @Primary
 @Singleton
 public class GreetingService {
-
     public String getGreeting() {
-
         return "Hi, nice to see you here";
-
     }
 }
