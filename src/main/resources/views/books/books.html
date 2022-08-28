@@ -10,6 +10,7 @@
         table {
             width: 100%;
             border-collapse: collapse;
+            margin-bottom: 20px;
         }
         tr {
           border: solid;
@@ -18,13 +19,16 @@
         h1 {
             text-align: center;
         }
+        #rightSide {
+            display: none;
+        }
     </style>
 </head>
 <body>
 
 <h1>My Library &ndash; List of books</h1>
 
-<table>
+<table id="booksTable">
     <thead>
     <tr>
         <th> ID</th>
@@ -35,7 +39,7 @@
     </tr>
     </thead>
     <tbody>
-    <tr th:each="book : *{books}">
+    <tr th:each="book : *{books}" th:id=${book.id} th:onclick="showDetail([[${book.id}]], [[${book.title}]], [[${book.pages}]], [[${book.year}]], [[${book.author.name}]]);">
         <td th:text="*{book.id}"></td>
         <td th:text="*{book.title}"></td>
         <td th:text="*{book.pages}"></td>
@@ -44,5 +48,44 @@
     </tr>
     </tbody>
 </table>
+
+<div id="rightSide" >
+
+    <h2 id="bookTitle">Title</h2>
+    <h3 id="bookAuthor">Author</h3>
+    <p id="bookDescription">Description</p>
+</div>
+
+<script  th:inline="javascript">
+
+    var isResized = false;
+    var lastId;
+    function showDetail(id, title, page, year, author) {
+
+        if(isResized && lastId === id){
+            document.getElementById('booksTable').style.width = "100%";
+            document.getElementById('rightSide').style.display = "none";
+        } else {
+            document.getElementById('booksTable').style.width = "50%";
+            document.getElementById('booksTable').style.float = "left";
+
+            document.getElementById('rightSide').style.float = "left";
+            document.getElementById('rightSide').style.width = "40%";
+            document.getElementById('rightSide').style.display = "block";
+            document.getElementById('rightSide').style.margin= "1% 5% 1% 5%";
+
+            document.getElementById('bookTitle').innerHTML = title;
+            document.getElementById('bookAuthor').innerHTML = author;
+            document.getElementById('bookDescription').innerHTML = 'Year: ' + year + ', pages: ' + page;
+        }
+
+
+
+        isResized = !isResized;
+        lastId = id;
+    }
+
+
+</script>
 </body>
 </html>
