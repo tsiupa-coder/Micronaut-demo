@@ -1,6 +1,8 @@
 package com.example.controller.api;
 
+import com.example.service.BookService;
 import com.example.service.GreetingService;
+import io.micronaut.core.util.CollectionUtils;
 import io.micronaut.core.version.annotation.Version;
 import io.micronaut.http.HttpRequest;
 import io.micronaut.http.HttpResponse;
@@ -8,13 +10,27 @@ import io.micronaut.http.MediaType;
 import io.micronaut.http.annotation.Controller;
 import io.micronaut.http.annotation.Get;
 import io.micronaut.http.annotation.Produces;
+import io.micronaut.views.View;
 import jakarta.inject.Inject;
+
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Map;
 
 @Controller
 public class GreetController {
 
     @Inject
-    private GreetingService greetingService;
+    private final GreetingService greetingService;
+
+    @Inject
+    private final BookService bookService;
+
+    public GreetController(GreetingService greetingService, BookService bookService) {
+        this.greetingService = greetingService;
+        this.bookService = bookService;
+    }
 
     @Version("1.0")
     @Get("/{name}")
@@ -55,5 +71,14 @@ public class GreetController {
                             </body>
                         </html>
                 """;
+    }
+
+    @View("books/books")
+    @Get("/test")
+    public Map getHome() {
+        Date date = new Date();
+        SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+
+        return CollectionUtils.mapOf( "books", bookService.findAll());
     }
 }
