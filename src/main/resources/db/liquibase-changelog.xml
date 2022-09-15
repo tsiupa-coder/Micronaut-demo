@@ -12,10 +12,10 @@
             (
             id BIGSERIAL NOT NULL,
             title TEXT NOT NULL,
+            booked BOOLEAN DEFAULT FALSE,
             pages BIGINT NOT NULL,
             PRIMARY KEY (id)
             );
-
         </sql>
     </changeSet>
 
@@ -65,7 +65,6 @@
         </sql>
     </changeSet>
 
-
     <changeSet id="007" author="ivan_tsiupa">
         <sql>
             ALTER TABLE books ADD author_id BIGINT constraint author_id_constraint references authors;
@@ -78,131 +77,85 @@
         </sql>
     </changeSet>
 
-
     <changeSet id="009" author="ivan_tsiupa">
         <sql>
             INSERT INTO authors(full_name) VALUES('George Orwell');
             INSERT INTO books(title, pages, year, author_id) VALUES('1984', 200, 2000, 2);
-
             INSERT INTO authors(full_name) VALUES('JRR Tolkien');
             INSERT INTO books(title, pages, year, author_id) VALUES('Lord of the Rings', 200, 2000, 3);
-
-
             INSERT INTO authors(full_name) VALUES('Khaled Hosseini');
             INSERT INTO books(title, pages, year, author_id) VALUES('Kite Runner', 200, 2000, 4);
-
             INSERT INTO authors(full_name) VALUES('Kurt Vonnegut');
             INSERT INTO books(title, pages, year, author_id) VALUES('Slaughterhouse-Five', 200, 2000, 5);
-
-
             INSERT INTO authors(full_name) VALUES('Lewis, C.S.');
             INSERT INTO books(title, pages, year, author_id) VALUES('The Lion the Witch and the Wardrobe', 200, 2000, 6);
-
             INSERT INTO authors(full_name) VALUES('Harper Lee');
             INSERT INTO books(title, pages, year, author_id) VALUES('To Kill a Mockingbird', 200, 2000, 7);
-
-
             INSERT INTO authors(full_name) VALUES('Markus Zusak');
             INSERT INTO books(title, pages, year, author_id) VALUES('The Book Thief', 200, 2000, 8);
-
-
             INSERT INTO authors(full_name) VALUES('Emily Bronte');
             INSERT INTO books(title, pages, year, author_id) VALUES('Wuthering Heights', 200, 2000, 9);
-
-
             INSERT INTO authors(full_name) VALUES('J.D. Salinger');
             INSERT INTO books(title, pages, year, author_id) VALUES('The Catcher in the Rye', 200, 2000, 10);
-
             INSERT INTO authors(full_name) VALUES('Charlotte Bronte');
             INSERT INTO books(title, pages, year, author_id) VALUES('Jane Eyre', 200, 2000, 11);
-
             INSERT INTO books(title, pages, year, author_id) VALUES('Animal Farm', 200, 2000, 2);
-
             INSERT INTO authors(full_name) VALUES('Ray Bradbury');
             INSERT INTO books(title, pages, year, author_id) VALUES('Fahrenheit 451', 200, 2000, 12);
-
             INSERT INTO authors(full_name) VALUES('Louisa May Alcott');
             INSERT INTO books(title, pages, year, author_id) VALUES('Little Women', 200, 2000, 13);
-
             INSERT INTO authors(full_name) VALUES('E. B. White');
             INSERT INTO books(title, pages, year, author_id) VALUES('Charlottes Web', 200, 2000, 14);
-
             INSERT INTO authors(full_name) VALUES('Mary Shelley');
             INSERT INTO books(title, pages, year, author_id) VALUES('Frankenstein', 200, 2000, 15);
-
             INSERT INTO authors(full_name) VALUES('John Steinbeck');
             INSERT INTO books(title, pages, year, author_id) VALUES('Of Mice and Men', 200, 2000, 16);
-
             INSERT INTO authors(full_name) VALUES('Douglas Adams');
             INSERT INTO books(title, pages, year, author_id) VALUES('The Hitchhikers Guide to the Galaxy', 200, 2000, 17);
-
             INSERT INTO authors(full_name) VALUES('F. Scott Fitzgerald');
             INSERT INTO books(title, pages, year, author_id) VALUES('The Great Gatsby', 200, 2000, 18);
-
             INSERT INTO authors(full_name) VALUES('Napoleon Hill');
             INSERT INTO books(title, pages, year, author_id) VALUES('Think and Grow Rich', 200, 2000, 19);
-
             INSERT INTO authors(full_name) VALUES('Robert Kiyosaki');
             INSERT INTO books(title, pages, year, author_id) VALUES('Rich Dad, Poor Dad', 200, 2000, 20);
-
             INSERT INTO authors(full_name) VALUES('Benjamin Graham');
             INSERT INTO books(title, pages, year, author_id) VALUES('The Intelligent Investor', 200, 2000, 21);
-
             INSERT INTO authors(full_name) VALUES('Ray Dalio');
             INSERT INTO books(title, pages, year, author_id) VALUES('Principles: Life and Work', 200, 2000, 22);
-
             INSERT INTO authors(full_name) VALUES('Robert B. Cialdini');
             INSERT INTO books(title, pages, year, author_id) VALUES('Influence: The Psychology of Persuasion', 200, 2000, 23);
-
             INSERT INTO authors(full_name) VALUES('Dale Carnegie');
             INSERT INTO books(title, pages, year, author_id) VALUES('How to Win Friends and Influence People', 200, 2000, 24);
-
             INSERT INTO authors(full_name) VALUES('Charles Duhigg');
             INSERT INTO books(title, pages, year, author_id) VALUES('The Power of Habit: Why We Do What We Do in Life and Business', 200, 2000, 25);
-
             INSERT INTO authors(full_name) VALUES('Eckhart Tolle');
             INSERT INTO books(title, pages, year, author_id) VALUES('The Power of Now', 200, 2000, 26);
-
             INSERT INTO authors(full_name) VALUES('Bessel Van Der Kolk, MD');
             INSERT INTO books(title, pages, year, author_id) VALUES('The Body Keeps the Score', 200, 2000, 27);
-
             INSERT INTO authors(full_name) VALUES('Stephen Hawking');
             INSERT INTO books(title, pages, year, author_id) VALUES('A Brief History of Time', 200, 2000, 28);
-
             INSERT INTO authors(full_name) VALUES('Steven D. Levitt');
             INSERT INTO books(title, pages, year, author_id) VALUES('Freakonomics', 200, 2000, 29);
-
             INSERT INTO authors(full_name) VALUES('Shoshana Zuboff');
             INSERT INTO books(title, pages, year, author_id) VALUES('The Age of Surveillance Capitalism', 200, 2000, 30);
-
             INSERT INTO authors(full_name) VALUES('Anna Wiener');
             INSERT INTO books(title, pages, year, author_id) VALUES('Uncanny Valley', 200, 2000, 31);
-
             INSERT INTO authors(full_name) VALUES('Jack Kerouac');
             INSERT INTO books(title, pages, year, author_id) VALUES('On the Road', 200, 2000, 32);
-
             INSERT INTO authors(full_name) VALUES('Bill Bryson');
             INSERT INTO books(title, pages, year, author_id) VALUES('Notes From a Small Island', 200, 2000, 33);
-
             INSERT INTO authors(full_name) VALUES('Rolf Potts');
             INSERT INTO books(title, pages, year, author_id) VALUES('Vagabonding', 200, 2000, 34);
-
             INSERT INTO authors(full_name) VALUES('Cheryl Strayed');
             INSERT INTO books(title, pages, year, author_id) VALUES('Wild', 200, 2000, 35);
-
             INSERT INTO authors(full_name) VALUES('Yuval Noah Harari');
             INSERT INTO books(title, pages, year, author_id) VALUES('Sapiens', 200, 2000, 36);
-
             INSERT INTO authors(full_name) VALUES('Nelson Mandela');
             INSERT INTO books(title, pages, year, author_id) VALUES('Long Walk to Freedom', 200, 2000, 37);
-
             INSERT INTO authors(full_name) VALUES('Steve Brusatte');
             INSERT INTO books(title, pages, year, author_id) VALUES('The Rise and Fall of the Dinosaurs', 200, 2000, 38);
-
             INSERT INTO authors(full_name) VALUES('Bill Bryson');
             INSERT INTO books(title, pages, year, author_id) VALUES('A Short History of Nearly Everything', 200, 2000, 39);
-
         </sql>
     </changeSet>
-
 </databaseChangeLog>

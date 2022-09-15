@@ -1,5 +1,6 @@
 package com.example.service;
 
+import com.example.exceptions.BookIsInUseException;
 import com.example.exceptions.ItemNotFoundException;
 import com.example.model.Book;
 import com.example.model.dto.BookDTO;
@@ -53,6 +54,7 @@ public class BookService {
                         )
                 );
     }
+
 
     @Transactional
     public Long countBooks() {
@@ -108,5 +110,15 @@ public class BookService {
             bookUpdated.setTitle(title);
             repository.update(bookUpdated);
         }
+    }
+    @Transactional
+    public void booked(Long id) {
+        Book book = repository.findByIdAndBooked(id, false).orElseThrow(BookIsInUseException::new);
+        book.setBooked(true);
+    }
+
+    @Transactional
+    public List<Book> booked() {
+        return repository.findByBooked(true);
     }
 }

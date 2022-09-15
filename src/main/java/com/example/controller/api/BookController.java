@@ -20,6 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import static com.example.generall.URlConstants.BOOKED;
 import static com.example.generall.URlConstants.BOOKS;
 import static com.example.generall.URlConstants.COUNT;
 import static com.example.generall.URlConstants.ID;
@@ -69,4 +70,20 @@ public class BookController {
     public void update(@PathVariable Long id, @QueryValue @NotBlank String name) {
         service.updateName(id, name);
     }
+
+
+    @Version(VERSION_1_1)
+    @Status(HttpStatus.ACCEPTED)
+    @Put(BOOKED + ID)
+    public void booked(@PathVariable Long id) {
+        service.booked(id);
+    }
+
+    @Version(VERSION_1_1)
+    @Status(HttpStatus.OK)
+    @Get(BOOKED)
+    public List<Book> bookedList() {
+        return service.booked();
+    }
+
 }

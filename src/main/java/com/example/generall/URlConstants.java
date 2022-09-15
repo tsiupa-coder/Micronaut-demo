@@ -9,7 +9,7 @@ public final class URlConstants {
     public static final String API = "api/";
     public static final String BOOKS = API + "books";
     public static final String COUNT = "count";
-
+    public static final String BOOKED = "/booked/";
     public static final String AUTHORS = API + "authors";
     public static final String VERSION_1_1 = "1.1";
     public static final String ID = "{id}";
